@@ -6,7 +6,6 @@ print ("You are on the first python calculator")
 print("would you like to count?")
 respond = input()
 result = None
-
 def sum ( a = None, b = None):
     return a + b
 def dif (a = None, b = None):
@@ -34,14 +33,27 @@ def calc (v1 = None, v2 = None, act = None):
             print("division by 0 is impossible")
             v2 = float (input("type your value" "\n"))
     return result
+def get_action ():
+    while True:
+        act = input ("Type operation" "\n")
+        if act == "+" or act == "-" or act == "/" or act == "*" or act == "**" or act == "=":
+            return act
+        else:
+            print ("Invalid opperation, please try again")
+
 while respond == "yes":
     v1 = float (input("type your value" "\n"))
     result = v1
     act1 = ""
     while act1 != "=":
-        act1 = input ("Type operation" "\n")
+        act1 = get_action()
         if act1 != "=":
-            v2 = float (input("type your value" "\n"))
+            while True:
+                try :
+                    v2 = float (input("type your value" "\n"))
+                    break
+                except:
+                    print (" Incorrect value, try again")
             result = calc (result, v2, act1)
         
     else:
