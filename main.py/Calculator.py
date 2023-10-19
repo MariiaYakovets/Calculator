@@ -8,28 +8,37 @@ respond = input()
 result = None
 
 while respond == "yes":
-    
-    first_value = input ("Type your first value" "\n")
-    fv = int(first_value)
-    operation = input ("what kind of operation you want to do" "\n")
-    second_value = input ("Type your second value" "\n")
-    sv = int(second_value)
-    if operation == "+":
-        result = fv + sv
-    elif operation =='-':
-        result =fv - sv
-    elif operation == "*":
-        result = fv * sv
-    elif operation == "/":
-        while sv!=0:
-            result = fv / sv
+    value1 = int(input ("Type the value" "\n"))
+    operation1 = input ("choose your operation: " "\n" "+" "\n" "-" "\n" "*" "\n" "/" "\n" "**")
+    value2 = int(input ("Type the value" "\n"))
+    operation2 = input ("choose your operation: " "\n" "+" "\n" "-" "\n" "*" "\n" "/" "\n" "**" "\n" "=" )
+    if operation1 == "+":
+            result = value1 + value2
+    elif operation1 == "-":
+        result = value1 - value2
+    elif operation1 == "*":
+        result = value1 * value2
+    elif operation1 == "**":
+        result = value1 ** value2
+    elif operation1 == "/":
+        while value2!=0:
+            result = value1 / value2
         else:
             print (" devision by 0 is impossible, try something different")
             
-    if result != None :
-        given_result = float (result)
-        print (given_result)
-    respond = input("Continue counting?")
-else:
-    print ("See you soon then")
-
+    value3 = int(input ("Type the value" "\n"))
+    operation3 = input ("choose your operation: " "\n" "+" "\n" "-" "\n" "*" "\n" "/" "\n" "**" "\n" "=" )
+    if operation3 == "=":
+        if operation1 == "+":
+            result = value1 + value2
+        elif operation1 == "-":
+            result = value1 - value2
+        elif operation1 == "*":
+            result = value1 * value2
+        elif operation1 == "**":
+            result = value1 ** value2
+        elif operation1 == "/":
+            while value2!=0:
+                result = value1 / value2
+            else:
+                print (" devision by 0 is impossible, try something different")
