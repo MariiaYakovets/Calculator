@@ -7,38 +7,46 @@ print("would you like to count?")
 respond = input()
 result = None
 
-while respond == "yes":
-    value1 = int(input ("Type the value" "\n"))
-    operation1 = input ("choose your operation: " "\n" "+" "\n" "-" "\n" "*" "\n" "/" "\n" "**")
-    value2 = int(input ("Type the value" "\n"))
-    operation2 = input ("choose your operation: " "\n" "+" "\n" "-" "\n" "*" "\n" "/" "\n" "**" "\n" "=" )
-    if operation1 == "+":
-            result = value1 + value2
-    elif operation1 == "-":
-        result = value1 - value2
-    elif operation1 == "*":
-        result = value1 * value2
-    elif operation1 == "**":
-        result = value1 ** value2
-    elif operation1 == "/":
-        while value2!=0:
-            result = value1 / value2
+def sum ( a = None, b = None):
+    return a + b
+def dif (a = None, b = None):
+    return a - b
+def mult (a = None, b = None):
+    return a * b
+def div (a = None, b = None):
+    return a / b
+def pow (a = None, b = None):
+    return a ** b
+def calc (v1 = None, v2 = None, act1 = None):
+    if act1 == "+":
+        var1 = sum(a=v1, b=v2)
+    elif act1 == "-":
+        var1 = dif(a=v1,b=v2)
+    elif act1 == "*":
+        var1 = mult(a=v1,b=v2)
+    elif act1 == "**":
+        var1 = pow(a=v1,b=v2)
+    elif act1 == "/":
+        while v2 != 0:
+            var1 = div(a=v1,b=v2)
+            break
         else:
-            print (" devision by 0 is impossible, try something different")
-            
-    value3 = int(input ("Type the value" "\n"))
-    operation3 = input ("choose your operation: " "\n" "+" "\n" "-" "\n" "*" "\n" "/" "\n" "**" "\n" "=" )
-    if operation3 == "=":
-        if operation1 == "+":
-            result = value1 + value2
-        elif operation1 == "-":
-            result = value1 - value2
-        elif operation1 == "*":
-            result = value1 * value2
-        elif operation1 == "**":
-            result = value1 ** value2
-        elif operation1 == "/":
-            while value2!=0:
-                result = value1 / value2
-            else:
-                print (" devision by 0 is impossible, try something different")
+            print("division by 0 is impossible")
+            v2 = float (input("type your value" "\n"))
+    return var1
+
+while respond == "yes":
+    v1 = float (input("type your value" "\n"))
+    act1 = input ("Type operation" "\n")
+    v2 = float (input("type your value" "\n"))
+    var1 = calc (v1, v2, act1)
+
+    act2 = input ("Type operation" "\n")
+    if act2 != "=":
+        v3 = float (input("type your value" "\n"))
+    else:
+        var1 = calc (var1, v3, act2)
+    print("your value is", var1)
+    respond = input ("Do you want to continue counting?" "\n")
+else:
+    print ("See you later then")
